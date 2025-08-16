@@ -5,47 +5,56 @@ This folder contains a vanilla JavaScript implementation of Campus Club Manager.
 ## What we’re building
 
 A small app to manage campus clubs:
+
 - Create clubs with a name and capacity
 - Show how many seats are filled, seats left, and percent full
 - Prepare for future enhancements like member lists, events, search/filter, and persistence
 
 ## Stages (start → finish)
 
-1) Minimum Viable App (MVA)
-  - Static seed data + render a list of clubs
-  - Add Club form with basic validation and duplicate‑name guard
-  - Simple helpers (seats left, percent full) and clean DOM updates
+1. Minimum Viable App (MVA)
 
-2) Refactor for clarity
-  - Extract small helpers/utilities for calculations and formatting
-  - Tidy event handling and rendering into focused functions
-  - Keep the code approachable and beginner‑friendly
+- Static seed data + render a list of clubs
+- Add Club form with basic validation and duplicate‑name guard
+- Simple helpers (seats left, percent full) and clean DOM updates
 
-3) Structure for growth
-  - Introduce ES modules and a light folder structure (e.g., `models/`, `store/`, `ui/`, `utils/`)
-  - Separate state from rendering; keep pure functions where possible
-  - Make it easy to test behavior manually and iterate quickly
+2. Refactor for clarity
 
-4) UX enhancements
-  - Add search/filter/sort pipeline (derived from in‑memory state)
-  - Debounce inputs and streamline render cycles
-  - Small accessibility and styling improvements
+- Extract small helpers/utilities for calculations and formatting
+- Tidy event handling and rendering into focused functions
+- Keep the code approachable and beginner‑friendly
 
-5) Persistence
-  - Save/load clubs from `localStorage`
-  - Optional import/export/reset for quick demos
+3. Structure for growth
 
-6) Routing
-  - Hash‑based routes for list vs detail screens
-  - Keep URLs shareable while staying in a static front‑end
+- Introduce ES modules and a light folder structure (e.g., `models/`, `store/`, `ui/`, `utils/`)
+- Separate state from rendering; keep pure functions where possible
+- Make it easy to test behavior manually and iterate quickly
 
-7) Async & data bootstrapping
-  - Fetch initial seed data from a local JSON file
-  - Add simple loading/error status messages
+4. UX enhancements
 
-8) Ready for MEAN
-  - Align data shapes with the upcoming Node/Express API
-  - Prepare the app for an Angular migration (components, services, routing)
+- Add search/filter/sort pipeline (derived from in‑memory state)
+- Debounce inputs and streamline render cycles
+- Small accessibility and styling improvements
+
+5. Persistence
+
+- Save/load clubs from `localStorage`
+- Optional import/export/reset for quick demos
+
+6. Routing
+
+- Hash‑based routes for list vs detail screens
+- Keep URLs shareable while staying in a static front‑end
+
+7. Async & data bootstrapping
+
+- Fetch initial seed data from a local JSON file
+- Add simple loading/error status messages
+
+8. Ready for MEAN
+
+- Align data shapes with the upcoming Node/Express API
+- Prepare the app for an Angular migration (components, services, routing)
 
 ## Run locally (VS Code Live Server)
 
@@ -57,6 +66,7 @@ We use the VS Code “Live Server” extension for local development with auto�
 4. Your browser opens to a local URL (e.g., http://127.0.0.1:5500). Edits auto‑reload
 
 Tips
+
 - If “Go Live” doesn’t appear, confirm the extension is installed and you’ve opened the folder (not just a single file)
 - Opening `JavaScript/index.html` directly ensures correct relative paths
 

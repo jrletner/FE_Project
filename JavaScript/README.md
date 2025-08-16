@@ -15,10 +15,10 @@ A small app to manage campus clubs:
 - Clubs
   - Create club with name and capacity (validation + duplicate guard)
   - Edit capacity; optional archive/delete (later)
-- Members (later)
+- Members
   - Add/remove members per club
   - Show live counts; respect capacity limits
-- Events (later)
+- Events
   - Create events with title/date/capacity
   - Friendly date display
 - Search / Filter / Sort

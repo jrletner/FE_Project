@@ -56,6 +56,35 @@ A small app to manage campus clubs:
 - Align data shapes with the upcoming Node/Express API
 - Prepare the app for an Angular migration (components, services, routing)
 
+## Planned features
+
+- Clubs
+  - Create club with name and capacity (validation + duplicate guard)
+  - Edit capacity; optional archive/delete (later)
+- Members (later)
+  - Add/remove members per club
+  - Show live counts; respect capacity limits
+- Events (later)
+  - Create events with title/date/capacity
+  - Friendly date display
+- Search / Filter / Sort
+  - Search by club name
+  - Filter by availability or fullness
+  - Sort by name, seats left, or percent full
+- Persistence
+  - Save/load via localStorage
+  - Import/Export/Reset JSON
+- Routing
+  - Hash-based routes for list and detail views
+- Async & Seed Data
+  - Fetch initial seed JSON on first run
+  - Loading/error status messages
+- UX & Accessibility
+  - Debounced inputs, keyboard-friendly interactions, lightweight styles
+- MEAN readiness
+  - Data shapes aligned to a future Node/Express API
+  - Smooth migration path to Angular components/services
+
 ## Run locally (VS Code Live Server)
 
 We use the VS Code “Live Server” extension for local development with auto‑reload.

@@ -10,52 +10,6 @@ A small app to manage campus clubs:
 - Show how many seats are filled, seats left, and percent full
 - Prepare for future enhancements like member lists, events, search/filter, and persistence
 
-## Stages (start → finish)
-
-1. Minimum Viable App (MVA)
-
-- Static seed data + render a list of clubs
-- Add Club form with basic validation and duplicate‑name guard
-- Simple helpers (seats left, percent full) and clean DOM updates
-
-2. Refactor for clarity
-
-- Extract small helpers/utilities for calculations and formatting
-- Tidy event handling and rendering into focused functions
-- Keep the code approachable and beginner‑friendly
-
-3. Structure for growth
-
-- Introduce ES modules and a light folder structure (e.g., `models/`, `store/`, `ui/`, `utils/`)
-- Separate state from rendering; keep pure functions where possible
-- Make it easy to test behavior manually and iterate quickly
-
-4. UX enhancements
-
-- Add search/filter/sort pipeline (derived from in‑memory state)
-- Debounce inputs and streamline render cycles
-- Small accessibility and styling improvements
-
-5. Persistence
-
-- Save/load clubs from `localStorage`
-- Optional import/export/reset for quick demos
-
-6. Routing
-
-- Hash‑based routes for list vs detail screens
-- Keep URLs shareable while staying in a static front‑end
-
-7. Async & data bootstrapping
-
-- Fetch initial seed data from a local JSON file
-- Add simple loading/error status messages
-
-8. Ready for MEAN
-
-- Align data shapes with the upcoming Node/Express API
-- Prepare the app for an Angular migration (components, services, routing)
-
 ## Planned features
 
 - Clubs
@@ -84,6 +38,19 @@ A small app to manage campus clubs:
 - MEAN readiness
   - Data shapes aligned to a future Node/Express API
   - Smooth migration path to Angular components/services
+
+## Skills you’ll learn
+
+- Core JavaScript fundamentals: variables, arrays/objects, functions, scope
+- DOM manipulation: querying, creating/updating elements, event handling
+- State and rendering: deriving values, pure helpers, minimizing reflows
+- Modular code organization with ES modules and simple folder structure
+- UI patterns: search/filter/sort pipelines, debouncing, basic accessibility
+- Client‑side persistence with localStorage (save/load, import/export/reset)
+- Routing concepts in the browser via hash‑based URLs
+- Async basics: fetching JSON, handling loading and error states
+- Practical debugging: console tools, error messages, and quick fixes
+- Readiness for MEAN: data shapes and conventions that translate to Angular/Express
 
 ## Run locally (VS Code Live Server)
 

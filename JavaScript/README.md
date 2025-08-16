@@ -1,100 +1,93 @@
-# Campus Club Manager — JS Mini Project (Class-by-Class)
+# Campus Club Manager — Vanilla JS Project Roadmap
 
-This mini project evolves across folders `class_code/class_01` → `class_code/class_12`. Each folder contains the finished code for that class and a delta-style walkthrough (`Current_Lesson_Walkthrough.md`) describing what changed from the previous class.
+This folder contains a vanilla JavaScript implementation of Campus Club Manager. The project evolves in stages from a simple, browser‑only app into a more structured version ready to migrate to Angular and a Node/Express API.
 
-## How to run locally (VS Code Live Server)
+## What we’re building
 
-- We use the VS Code Live Server extension for all classes.
-- Class 12 requires HTTP for `fetch('./data/seed.json')`; Live Server provides this.
+A small app to manage campus clubs:
+- Create clubs with a name and capacity
+- Show how many seats are filled, seats left, and percent full
+- Prepare for future enhancements like member lists, events, search/filter, and persistence
 
-Steps:
+## Stages (start → finish)
 
-1. Install the VS Code extension: “Live Server” by Ritwick Dey.
-2. In VS Code, open the specific class folder (e.g., `JS_Mini_Project/class_code/class_12`).
-3. Open `index.html` and click “Go Live” (status bar) or right‑click → “Open with Live Server”.
-4. Your browser opens to a local URL (e.g., http://127.0.0.1:5500/…). Edits auto‑reload.
+1) Minimum Viable App (MVA)
+  - Static seed data + render a list of clubs
+  - Add Club form with basic validation and duplicate‑name guard
+  - Simple helpers (seats left, percent full) and clean DOM updates
 
-## Class-by-class overview
+2) Refactor for clarity
+  - Extract small helpers/utilities for calculations and formatting
+  - Tidy event handling and rendering into focused functions
+  - Keep the code approachable and beginner‑friendly
 
-- Class 1: Kickoff & setup — HTML/CSS/JS scaffold, simple page text.
-- Class 2: Variables & arrays — compute counts and render basic info.
-- Class 3: Create Club form — validation, duplicate name guard, renderClubs, addClub.
-- Class 4: OOP models — `Club`, `Member`, `EventItem` with class methods.
-- Class 5: DOM patterns — event delegation; dynamic club cards; Add Member UI.
-- Class 6: Search/Filter/Sort — toolbar with derived list pipeline.
-- Class 7: UX helpers — `debounce`, small `pipe` utility; cleaner filtering.
-- Class 8: ES Modules — moved to `src/` with `models/`, `store/`, `ui/`, `utils/`, `router`.
-- Class 9: Libraries & Events — `dayjs` (relative-time) and `nanoid`; events with friendly dates.
-- Class 10: Persistence — `localStorage` save/load; Import/Export/Reset; models serialize with `toPlain`/`fromPlain` and stable IDs.
-- Class 11: Routing — hash-based router; home list vs club detail; split `ui/render.js` and `ui/detail.js`.
-- Class 12: Async/Fetch — load seed from `data/seed.json` on first boot, simulated save, and global status messages.
+3) Structure for growth
+  - Introduce ES modules and a light folder structure (e.g., `models/`, `store/`, `ui/`, `utils/`)
+  - Separate state from rendering; keep pure functions where possible
+  - Make it easy to test behavior manually and iterate quickly
 
-## Current structure (Class 12)
+4) UX enhancements
+  - Add search/filter/sort pipeline (derived from in‑memory state)
+  - Debounce inputs and streamline render cycles
+  - Small accessibility and styling improvements
 
-```text
-class_code/class_12/
-  index.html
-  styles.css
-  data/seed.json
-  src/
-    app.js
-    router.js
-    services/
-      api.js
-    store/
-      data.js
-      filters.js
-      persist.js
-    models/
-      Club.js
-      Member.js
-      EventItem.js
-    ui/
-      render.js
-      detail.js
-    utils/
-      debounce.js
-      externals.js   # dayjs, nanoid
-      pipe.js
-```
+5) Persistence
+  - Save/load clubs from `localStorage`
+  - Optional import/export/reset for quick demos
 
-## Data shapes (Class 12)
+6) Routing
+  - Hash‑based routes for list vs detail screens
+  - Keep URLs shareable while staying in a static front‑end
+
+7) Async & data bootstrapping
+  - Fetch initial seed data from a local JSON file
+  - Add simple loading/error status messages
+
+8) Ready for MEAN
+  - Align data shapes with the upcoming Node/Express API
+  - Prepare the app for an Angular migration (components, services, routing)
+
+## Run locally (VS Code Live Server)
+
+We use the VS Code “Live Server” extension for local development with auto‑reload.
+
+1. Install the extension: Live Server (ritwickdey.LiveServer)
+2. Open the repo in VS Code
+3. Open `JavaScript/index.html` and click “Go Live” (or right‑click → Open with Live Server)
+4. Your browser opens to a local URL (e.g., http://127.0.0.1:5500). Edits auto‑reload
+
+Tips
+- If “Go Live” doesn’t appear, confirm the extension is installed and you’ve opened the folder (not just a single file)
+- Opening `JavaScript/index.html` directly ensures correct relative paths
+
+## Data model overview
+
+These minimal shapes guide calculations and rendering. Derived values (e.g., `current`, `seatsLeft`, `percentFull`) are computed in code.
 
 ```js
-// Club (derived props computed in class)
+// Club
 {
-  id: "clb_...",
-  name: "Coding Club",
-  capacity: 10,
-  members: Member[],
-  events: EventItem[],
-  // derived in code: current, seatsLeft, percentFull
+  id?: string,      // added later when persistence/async are introduced
+  name: string,
+  capacity: number,
+  members?: Member[],
+  events?: EventItem[]
 }
 
 // Member
-{ id: "mem_...", name: "Ava" }
+{ id?: string, name: string }
 
 // EventItem
 {
-  id: "evt_...",
-  title: "Hack Night",
-  dateISO: "2025-09-10",
-  description?: "...",
-  capacity?: 30,
-  // derived in code: friendlyWhen, isPast
+  id?: string,
+  title: string,
+  dateISO?: string,
+  description?: string,
+  capacity?: number
 }
 ```
 
-## Documentation per class
-
-Every class folder includes `Current_Lesson_Walkthrough.md` with:
-
-- A delta section listing exactly what changed from the prior class.
-- Small rationale for each change and where to find it (file/path).
-- An appendix with the full code for that class for quick reference.
-
 ## Notes & troubleshooting
 
-- If you see errors fetching `./data/seed.json`, make sure Live Server is running (HTTP) and you launched it from the class folder containing `index.html`.
-- Import/Export/Reset work locally via `localStorage` (Class 10+).
-- The global status banner (Class 12) shows loading/success/error messages for async actions.
+- If you run into a JSON parsing error while experimenting with persistence, clear the relevant `localStorage` key (e.g., `clubs`) and refresh
+- If a future refactor fetches a local JSON file, ensure Live Server is running so the request is served over HTTP

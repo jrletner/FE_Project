@@ -1,18 +1,49 @@
 # FE_Project
 
-A lightweight front‑end practice repo for the Codefi 2025 Angular/Rails track. It hosts small, focused examples and class exercises you can open directly in a browser or extend into larger projects.
+A lightweight front‑end and MEAN practice repo (MongoDB, Express, Angular, Node.js). It hosts small, focused examples and class exercises you can open directly in a browser or extend into larger projects.
+
+## What is MEAN?
+
+MEAN is a full‑stack JavaScript stack:
+
+- MongoDB — NoSQL database for storing app data
+- Express — Minimal web framework on Node.js for building REST APIs
+- Angular — Front‑end framework for building SPAs
+- Node.js — Runtime for server‑side JavaScript
+
+Typical flow: Angular (frontend) calls Express APIs on Node.js, which read/write data in MongoDB.
 
 ## What’s here
 
-- JavaScript/
-  - index.html, app.js, styles.css — a simple "Campus Club Manager" demo used in early classes to practice:
-    - Variables, arrays/objects
-    - DOM rendering and events (form submit)
-    - Basic math/formatting and templating
-- Angular/
-  - Placeholder for Angular lessons/projects to be added as the course progresses
-- NodeJS/
-  - Placeholder for simple backend/API demos
+### JavaScript — Campus Club Manager (vanilla JS)
+
+- Goal: Build a dynamic, browser‑only version of Campus Club Manager to practice core JS and DOM skills.
+- Concepts: arrays/objects, functions, events, DOM updates, template literals, basic math
+- Run: Open `JavaScript/index.html` with VS Code Live Server (see Quick start)
+- Status: Working demo; no persistence yet (intentionally simple)
+
+### Angular — Campus Club Manager (SPA)
+
+- Goal: Migrate the vanilla demo into a modular Angular application.
+- Scope (phased):
+  - Components for list, card, and add‑club form
+  - Services for club state and (later) API integration
+  - Routing for future multi‑page flows (e.g., details, admin)
+  - Forms (Template‑driven → Reactive) and basic validation
+- Outcome: A maintainable SPA mirroring the vanilla app’s UX with room to grow
+- Status: Scaffolding to be added during the Angular module of the course
+
+### NodeJS — API for Campus Club Manager (Express)
+
+- Goal: Provide a REST API to back the Angular app.
+- Stack: Node.js + Express + MongoDB (database)
+- Plan:
+  - CRUD endpoints for clubs (list, create, update membership, archive)
+  - Validation and basic error handling
+  - CORS and simple environment config
+  - MongoDB models and data persistence
+- Outcome: A clean API the Angular frontend can consume during MEAN integration
+- Status: Will be implemented in the backend section; initial Express scaffold to follow
 
 ## Quick start (VS Code Live Server)
 

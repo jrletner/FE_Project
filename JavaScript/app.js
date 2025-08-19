@@ -86,5 +86,8 @@ document.getElementById("club-form").addEventListener("submit", function (e) {
   nameInput.focus();
 });
 
+// Footer year
+document.getElementById("year").textContent = new Date().getFullYear();
+
 // Initial paint
 renderClubs();

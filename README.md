@@ -1,6 +1,6 @@
 # FE_Project
 
-A lightweight front‑end and MEAN practice repo (MongoDB, Express, Angular, Node.js). It hosts small, focused examples and class exercises you can open directly in a browser or extend into larger projects.
+A lightweight front‑end and MEAN demo application repo (MongoDB, Express, Angular, Node.js). It hosts small, class project files you can open directly in a browser or extend into larger projects.
 
 ## What is MEAN?
 
@@ -76,8 +76,3 @@ For guided walkthroughs, slides, and companion materials, see:
 - No build step is required for the `JavaScript/` example.
 - If you experiment with persistence and run into a JSON parsing error, you can clear the browser’s localStorage key you introduced (e.g., `localStorage.removeItem('clubs')`) and refresh.
 
-## Contributing
-
-- Keep examples small and self‑contained.
-- Add a brief README to new subfolders describing purpose and how to run.
-- Use clear, beginner‑friendly code and comments.

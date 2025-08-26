@@ -116,7 +116,6 @@ function renderClubs() {
       .join("");
 
     card.innerHTML = `
-    
       <div><strong>${club.name}</strong><br>${stats}</div>
       <div class="member-section">
         <h4>Members (${club.current})</h4>

@@ -20,7 +20,7 @@ header p {
 }
 
 main {
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
@@ -31,7 +31,7 @@ main {
 .club-card {
   border: 1px solid #ccc;
   background: #fff;
-  padding: 10px;
+  padding: 12px;
   border-radius: 6px;
 }
 
@@ -86,4 +86,54 @@ footer {
 .error {
   color: #c00;
   margin-top: 8px;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #0b5bd3;
+  cursor: pointer;
+  padding: 0;
+}
+
+.link-btn:hover {
+  text-decoration: underline;
+}
+
+.note {
+  color: #666;
+  font-size: 12px;
+  margin-left: 8px;
+}
+
+.member-section {
+  margin-top: 8px;
+}
+
+.member-section h4 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+.member-list {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 6px 0;
+}
+
+.member-list li {
+  margin: 20px 0;
+}
+
+.inline-form {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.inline-form input {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
 }

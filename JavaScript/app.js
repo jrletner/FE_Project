@@ -86,8 +86,8 @@ class Club {
 
 // ---- App State (now using Club instances) ----
 let clubs = [
-  Club.fromPlain({ name: "Coding Club", current: 12, capacity: 25 }),
-  Club.fromPlain({ name: "Art Club", current: 8, capacity: 15 }),
+  Club.fromPlain({ name: "Coding Club", current: 3, capacity: 5 }),
+  Club.fromPlain({ name: "Art Club", current: 2, capacity: 4 }),
 ];
 
 // ---- Render ----
@@ -106,22 +106,78 @@ function renderClubs() {
     const card = document.createElement("div");
     card.className = "club-card";
 
-    // For now we show top-level stats. Members/Events UI comes next classes.
-    const line1 = `${club.name}`;
-    const line2 = `${club.current}/${club.capacity} seats filled (${club.seatsLeft} left, ${club.percentFull}% full)`;
+    card.dataset.clubId = club.id;
+    const stats = `${club.current}/${club.capacity} seats filled (${club.seatsLeft} left, ${club.percentFull}% full)`
+    const membersHTML = club.members.map((member) => `
+      <li>${member.name}
+      <button class="link-btn" data-action="remove-member" data-club-id="${club.id}" data-member-id="${member.id}">Remove</button>
+      </li>
+    `)
+      .join("");
 
-    // Keep it simple for beginners: just a couple of lines
-    card.innerHTML = `<strong>${line1}</strong><br>${line2}`;
-
+    card.innerHTML = `
+    
+      <div><strong>${club.name}</strong><br>${stats}</div>
+      <div class="member-section">
+        <h4>Members (${club.current})</h4>
+        <ul class="member-list">
+          ${membersHTML || "<li><em>No members yet</em></li>"}
+        </ul>
+        <div class="inline-form">
+          <input id="member-name-${club.id}" type="text" placeholder="e.g., Jordan" />
+          <button class="btn" data-action="add-member" data-club-id="${club.id}">Add Member</button>
+          <span id="status-${club.id}" class="note"></span>
+        </div> 
+      </div>
+    `;
     container.appendChild(card);
   });
 }
 
-// ---- Add Club (uses the Club class) ----
-function addClub(name, capacity) {
-  clubs.push(new Club(name, capacity));
-  renderClubs();
+function setStatus(clubId, message) {
+  const el = document.getElementById(`status-${clubId}`)
+  if (el) el.textContent = message;
 }
+
+const clubContainer = document.getElementById("club-info")
+clubContainer.addEventListener("click", (e) => {
+
+  const btn = e.target.closest("[data-action]")
+  if (!btn) return;
+  const action = btn.dataset.action;
+  const clubId = btn.dataset.clubId;
+  const club = clubs.find((club) => club.id === clubId)
+  if (!club) return;
+  if (action === "add-member") {
+    const input = document.getElementById(`member-name-${clubId}`)
+    const name = (input?.value || "").trim();
+    if (name === "") {
+      setStatus(clubId, "PLease enter a member name.")
+      return
+    }
+
+    const result = club.addMember(name)
+    if (!result.ok) {
+      const msg =
+        result.reason === "full"
+          ? "Club is at capacity."
+          : result.reason === "duplicate"
+            ? "Member name already exists."
+            : "Invalid member name.";
+      setStatus(clubId, msg);
+      return
+    }
+    setStatus(clubId, "Member added.");
+    renderClubs();
+  }
+
+  if (action === "remove-member") {
+    const memberId = btn.dataset.memberId
+    club.removeMember(memberId);
+    renderClubs();
+  }
+
+});
 
 // ---- Form handler (same UI as Class 3, now creating Club instances) ----
 document.getElementById("club-form").addEventListener("submit", function (e) {
@@ -145,12 +201,15 @@ document.getElementById("club-form").addEventListener("submit", function (e) {
     return;
   }
 
-  errorMessage.textContent = "";
-  addClub(name, capacity);
 
+  errorMessage.textContent = "";
+  clubs.push(new Club(name, capacity));
+  renderClubs();
   nameInput.value = "";
   capacityInput.value = "";
   nameInput.focus();
+
+
 });
 
 // ---- Footer year & initial paint ----

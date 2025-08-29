@@ -137,3 +137,24 @@ footer {
   padding: 6px 8px;
   border: 1px solid #ccc;
 }
+
+.toolbar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 12px 0 16px;
+}
+.input,
+.select {
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+}
+.checkbox {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  color: #444;
+}

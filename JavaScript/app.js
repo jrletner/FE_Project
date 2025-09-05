@@ -300,7 +300,7 @@ document.getElementById("club-form").addEventListener("submit", function (e) {
 const onSearchInput = debounce((value) => {
   ui.searchText = value;
   renderClubs();
-}, 3000);
+}, 300);
 
 document.getElementById("search").addEventListener("input", (e) => {
   onSearchInput(e.target.value);

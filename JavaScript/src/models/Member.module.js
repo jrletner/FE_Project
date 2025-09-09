@@ -4,7 +4,6 @@ function makeId(prefix) {
     return `${prefix}_${__id++}`;
 }
 
-
 // ---- Models ----
 export class Member {
     constructor(name, role = "member") {

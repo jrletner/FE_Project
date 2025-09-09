@@ -1,7 +1,7 @@
-import { clubs, addClub, findClubById } from "./src/store/data.js"
-import { getVisibleClubs, ui } from "./src/store/filters.module.js"
-import { renderClubs, setStatus } from "./src/ui/render.module.js"
-import { debounce } from "./src/utils/debounce.module.js"
+import { clubs, addClub, findClubById } from "./store/data.js"
+import { getVisibleClubs, ui } from "./store/filters.module.js"
+import { renderClubs, setStatus } from "./ui/render.module.js"
+import { debounce } from "./utils/debounce.module.js"
 
 // ---- Footer year & initial paint ----
 document.getElementById("year").textContent = new Date().getFullYear();

@@ -1,13 +1,9 @@
-// ---- Simple ID helper ----
-let __id = 1;
-function makeId(prefix) {
-    return `${prefix}_${__id++}`;
-}
+// src/models/Member.js
+import { nanoid } from '../utils/externals.module.js';
 
-// ---- Models ----
 export class Member {
     constructor(name, role = "member") {
-        this.id = makeId("m");
+        this.id = nanoid();
         this.name = name;
         this.role = role;
     }
